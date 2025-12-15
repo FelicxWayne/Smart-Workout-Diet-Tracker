@@ -12,11 +12,11 @@ public class DataStore{
         lastTrainedMap = new HashMap();
     }
 
-    public void addMeals(Meal meal){
+    public void addMeal(Meal meal){
         meals.add(meal);
     }
 
-    public List<Meal> getMeals(){
+    public List<Meal> getMeal(){
         return meals;
     }
 

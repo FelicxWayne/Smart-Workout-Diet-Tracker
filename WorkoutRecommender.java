@@ -2,9 +2,9 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 public class WorkoutRecommender {
-    private static final List<String> MUSCLES = Arrays.asList("Chest" ," Back" , "Arms" , "Shoulders", "Legs", "Core");
+    private static final List<String> MUSCLES = Arrays.asList("Chest","Shoulders", "Arms" ," Back", "Legs", "Core");
 
-    private static String suggestNextWorkout(Map<String,LocalDate> lastTrainedMap){
+    public static String suggestNextWorkout(Map<String,LocalDate> lastTrainedMap){
         LocalDate today = LocalDate.now();
         PriorityQueue<MuscleGap> pq = new PriorityQueue<>((a,b)->Long.compare(b.daysGap,a.daysGap));
         
