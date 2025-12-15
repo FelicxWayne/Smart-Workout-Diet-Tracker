@@ -14,8 +14,14 @@ public class Main {
             System.out.println("5. Exit ");
             System.out.print("Choose an option :");
 
-            int choice = sc.nextInt();
-            sc.nextLine();
+            int choice;
+            try {
+                choice = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid Option , Enter a valid Number");
+                continue;
+            }
+            
 
             switch(choice){
                 case 1:
@@ -59,8 +65,9 @@ public class Main {
         System.out.println("Meal Added Successfully !");
     }
     private static void addWorkout(Scanner sc, DataStore datastore){
-        System.out.print("Muscle Area(Chest/Back/Shoulders/Arms/Legs/Core)");
-        String muscle = sc.nextLine();
+        System.out.print("Muscle Area(Chest/Back/Shoulders/Arms/Legs/Core) :");
+        String muscleInput = sc.nextLine().toLowerCase();
+        String muscle = muscleInput.substring(0,1).toUpperCase() + muscleInput.substring(1);
 
         Workout workout = new Workout(LocalDate.now(), muscle);
         datastore.addWorkout(workout);
