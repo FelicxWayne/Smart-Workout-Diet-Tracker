@@ -5,6 +5,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         DataStore datastore = new DataStore();
 
+        FileStorage.loadMeal(datastore.getMeal());
+        FileStorage.loadWorkout(datastore.getWorkouts());
+
         while(true){
             System.out.println("\n=====YOUR FITNESS TRACKER====");
             System.out.println("1. Add Meal ");
@@ -62,6 +65,7 @@ public class Main {
         String date = LocalDate.now().toString();
         Meal meal = new Meal(date,mealType,food,calories,protein);
         datastore.addMeal(meal);
+        FileStorage.saveMeal(meal);
         System.out.println("Meal Added Successfully !");
     }
     private static void addWorkout(Scanner sc, DataStore datastore){
@@ -71,6 +75,7 @@ public class Main {
 
         Workout workout = new Workout(LocalDate.now(), muscle);
         datastore.addWorkout(workout);
+        FileStorage.saveWorkout(workout);
         System.out.println("Workout added successfully");
     }
     private static void suggestWorkout(DataStore datastore){

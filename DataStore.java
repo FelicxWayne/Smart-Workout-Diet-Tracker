@@ -20,6 +20,11 @@ public class DataStore{
         return meals;
     }
 
+    public List<Workout> getWorkouts() {
+        return workouts;
+    }
+
+
     public void addWorkout(Workout workout){
         workouts.add(workout);
 
